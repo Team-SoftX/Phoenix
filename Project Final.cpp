@@ -438,6 +438,9 @@ public:
     void readFI() {food_obj->foodIntakeMenu();}
     void dispFI() {food_obj->feedbackFood();}
 
+
+
+
     //calculating bmi and bmr
     void calculateBMI_BMR(){
         food_obj->calcBMI();
@@ -445,7 +448,6 @@ public:
         cal_ob->calcBMI();
         cal_ob->calcBMR();
     }
-
     void ReadAll(){
     //read name
 	cout << "First of all, please tell us about yourself:\nWhat's your name?: ";
