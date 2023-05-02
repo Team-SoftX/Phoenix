@@ -554,6 +554,7 @@ int main(){
     p1.calculateBMI_BMR();
 
 	do {
+        
         std::system("cls");
 		cout
         << "------------------------------------------" << endl
