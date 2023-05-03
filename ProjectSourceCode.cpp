@@ -775,7 +775,7 @@ public:
 
         cout << " Do you want to remove any product?\n"
              << "    (1).Yes \n"
-             << "    (2).No \n"
+       
              << "    Choose an option-";
         cin >> count;
         if (count == 1)
