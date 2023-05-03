@@ -2,11 +2,11 @@
 //All header files
 
 #include <iostream>
-#include <fstream>
 #include <string>
 #include <iomanip>
 #include <vector>
 #include <ctime>
+
 
 using namespace std;
 
@@ -874,7 +874,20 @@ int main() //This is our main class
 //Create Product list
 
 
+roductList plist;   //create an object for ProductList
+    vector<Product> product(10); //For displaying our sample product we were using vector function
+    product[0] = Product("11", "Shirt", 130.50);
+    product[1] = Product("12", "jeans", 200.30);
+    product[2] = Product("13", "Mobile", 4500.00);
+    product[3] = Product("14", "Keyboard", 72.70);
+    product[4] = Product("15", "Mouse", 55.90);
+    product[5] = Product("16", "Body Spray", 28.80);
+    product[6] = Product("17", "facewash", 18.50);
+    product[7] = Product("18", "Headphone", 89.50);
+    product[8] = Product("19", "Watch", 350.00);
+    product[9] = Product("20", "Belt", 32.50);
 
+    admin.products(product); //After add or remove any products by Admin this program will atomically update.
 
 
 
