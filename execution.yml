@@ -1,19 +1,22 @@
----
-execution:
-    -concurrency: 50
-    hold-for: 3m
-    ramp-up: 2m
+stages:
+  - build
+  - test
 
-   scenario: Choose Flight
-scenarios
-Choose Flight:
- requests:
--label: blazedemo
-methods: GET
- url: http://blazedemo.com/
--label: reserve
-method: POST
- url: http://blazedemo.com/reserve.php
-body:
-fromPort : Paris
-toPort: Buenos Aires
+build-code-job:
+  stage: build
+  script:
+    - echo "Check the ruby version, then build some Ruby project files:"
+    - ruby -v
+    - rake
+
+test-code-job1:
+  stage: test
+  script:
+    - echo "If the files are built successfully, test some files with one command:"
+    - rake test1
+
+test-code-job2:
+  stage: test
+  script:
+    - echo "If the files are built successfully, test other files with a different command:"
+    - rake test2
