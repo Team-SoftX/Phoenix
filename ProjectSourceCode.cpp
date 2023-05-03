@@ -1,11 +1,3 @@
-/*===================================================
-PROGRAMMING TECHINQUE II                            =
-E-COMMERCE (ONLINE SHOPPING MANAGEMENT) PROJECT     =
-GROUP MEMBERS:                                      =
-MD MONIRUL ISLAM MOLLA          A19EC4013           =
-MD ABU SALEH NAYEEM             A19EC4012           =
-TASNIA HOUQE NIDHI              A18CS9010           =
-====================================================*/
 
 //All header files
 
@@ -875,21 +867,14 @@ int main() //This is our main class
 {
     Administrator admin; //create an object for Administrator
     Customer customer;   //create an object for Customer
-    ProductList plist;   //create an object for ProductList
+   
+//Create Product list
 
-    vector<Product> product(10); //For displaying our sample product we were using vector function
-    product[0] = Product("11", "Shirt", 130.50);
-    product[1] = Product("12", "jeans", 200.30);
-    product[2] = Product("13", "Mobile", 4500.00);
-    product[3] = Product("14", "Keyboard", 72.70);
-    product[4] = Product("15", "Mouse", 55.90);
-    product[5] = Product("16", "Body Spray", 28.80);
-    product[6] = Product("17", "facewash", 18.50);
-    product[7] = Product("18", "Headphone", 89.50);
-    product[8] = Product("19", "Watch", 350.00);
-    product[9] = Product("20", "Belt", 32.50);
 
-    admin.products(product); //After add or remove any products by Admin this program will atomically update.
+
+
+
+
     std::system("cls");
     cout << "**************************************************" << endl
          << "|     WELCOME TO E-SHOPPING MANAGEMENT SYSTEM!   |" << endl
@@ -986,8 +971,11 @@ A:
         admin.displayProductList(); //After successful login Customer can visit all available products
 
         customer.ShoppingCartdetails(product); //Customer Added desirable products on my shopping cart, Customer can also
+            
+            
+            
                                                //remove product from his shopping cart before proceeding payment
-        customer.PaymentWork();                //customer object call the paymentWork function for complete the payment before placing order
+        customer.Payment();                //customer object call the paymentWork function for complete the payment before placing order
 
         customer.Receipt(); //An automated receipt will be generated for customer and mentioning the the details
                             //as well as current time and date
@@ -996,5 +984,4 @@ A:
     }
 
     return 0;
-    getch();
 }
