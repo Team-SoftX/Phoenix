@@ -887,6 +887,7 @@ roductList plist;   //create an object for ProductList
     product[8] = Product("19", "Watch", 350.00);
     product[9] = Product("20", "Belt", 32.50);
 
+
     admin.products(product); //After add or remove any products by Admin this program will atomically update.
 
 
