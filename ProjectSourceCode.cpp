@@ -10,7 +10,6 @@ TASNIA HOUQE NIDHI              A18CS9010           =
 //All header files
 
 #include <iostream>
-#include <conio.h>
 #include <fstream>
 #include <string>
 #include <iomanip>
