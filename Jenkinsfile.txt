@@ -1,0 +1,22 @@
+pipeline {
+    agent any
+    
+    stages {
+        stage('Build') {
+            steps {
+                sh 'g++ -o ProjectFinal ProjectFinal.cpp'
+            }
+        }
+        stage('Test') {
+            steps {
+                sh './ProjectFinal'
+            }
+            post {
+                always {
+                    junit 'test_results.xml'
+                }
+            }
+        }
+        
+    }
+}
