@@ -6,6 +6,7 @@
 #include <iomanip>
 #include <vector>
 #include <ctime>
+#include <fstream>
 
 
 using namespace std;
@@ -775,7 +776,7 @@ public:
 
         cout << " Do you want to remove any product?\n"
              << "    (1).Yes \n"
-       
+
              << "    Choose an option-";
         cin >> count;
         if (count == 1)
@@ -870,11 +871,11 @@ int main() //This is our main class
 {
     Administrator admin; //create an object for Administrator
     Customer customer;   //create an object for Customer
-   
+
 //Create Product list
 
 
-roductList plist;   //create an object for ProductList
+ProductList plist;   //create an object for ProductList
     vector<Product> product(10); //For displaying our sample product we were using vector function
     product[0] = Product("11", "Shirt", 130.50);
     product[1] = Product("12", "jeans", 200.30);
@@ -988,9 +989,9 @@ A:
         admin.displayProductList(); //After successful login Customer can visit all available products
 
         customer.ShoppingCartdetails(product); //Customer Added desirable products on my shopping cart, Customer can also
-            
-            
-            
+
+
+
                                                //remove product from his shopping cart before proceeding payment
         customer.PaymentWork();                //customer object call the paymentWork function for complete the payment before placing order
 
