@@ -1,55 +1,56 @@
 
 //All header files
 
-#include <iostream>
-#include <string>
-#include <iomanip>
-#include <vector>
-#include <ctime>
-#include <fstream>
+#include <iostream> // to provide input and output functionality
+#include <string> // to allows the use of string data types and related functions
+#include <iomanip> // to provide manipulators for controlling the formatting of input and output streams
+#include <vector> // provides a container class for dynamic arrays
+#include <ctime> // to provide functions for working with dates and times
+#include <fstream> // to provide classes and functions for working with files
 
 
-using namespace std;
+using namespace std; // For accessing 'std' namespace
 
 /*================================================================ << Address Class>> ==========================================================*/
 
 class Address //this class aggregated by Register class
 {
 private: //Private Attributes
+    // 4 string data types
     string block;
     string houseName;
     string city;
     string zip;
 
 
-
-
-public:                                                                 //Public Member functions
-    Address(string b = "", string h = "", string c = "", string z = "") //Constructor
+public:                                                                 // Public Member functions
+    Address(string b = "", string h = "", string c = "", string z = "") // Constructor
     {
-        block = b;
-        houseName = h;
-        city = c;
-        zip = z;
+        block = b;                                                      // Assign the value of parameter 'b' to 'block'
+        houseName = h;                                                  // Assign the value of parameter 'h' to 'houseName'
+        city = c;                                                       // Assign the value of parameter 'c' to 'city'
+        zip = z;                                                        // Assign the value of parameter 'z' to 'zip'
     }
-    void SetAddress() // mutator or set function
+
+    void SetAddress()                                                   // Mutator or set function
     {
-        cout << "ENTER YOUR BlOCK NO    : ";
-        cin >> block;
+        cout << "ENTER YOUR BLOCK NO    : ";
+        cin >> block;                                                   // Read user input for 'block'
         cin.ignore();
         cout << "ENTER YOUR HOUSE NAME  : ";
-        getline(cin, houseName);
+        getline(cin, houseName);                                        // Read user input for 'houseName'
         cout << "ENTER YOUR CITY NAME   : ";
-        getline(cin, city);
+        getline(cin, city);                                             // Read user input for 'city'
         cout << "ENTER YOUR POST CODE   : ";
-        cin >> zip;
+        cin >> zip;                                                     // Read user input for 'zip'
     }
 
-    string getFullAddress() //accessors or get function
+    string getFullAddress()                                             // Accessor or get function
     {
-        return block + ", " + houseName + ", " + city + ", " + zip + ".";
+        return block + ", " + houseName + ", " + city + ", " + zip + "."; // Concatenate address components and return as a string
     }
 };
+
 
 /*================================================================ << Register Class>> ==========================================================*/
 
