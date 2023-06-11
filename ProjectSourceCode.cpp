@@ -9,56 +9,17 @@
 
 using namespace std; 
 
-/*================================================================ << Address Class>> ==========================================================*/
-
-class Address //this class aggregated by Register class
-{
-private: //Private Attributes
-    string block;
-    string houseName;
-    string city;
-    string zip;
-
-
-public:                                                                 
-    Address(string b = "", string h = "", string c = "", string z = "") // Constructor, Initializes the Address object with provided values for block, houseName, city, and zip.
-    {
-        block = b;                                                     
-        houseName = h;                                                  
-        city = c;                                                      
-        zip = z;                                                        
-    }
-
-    void SetAddress()                                                   // Mutator, Reads user input and sets the values of block, houseName, city, and zip.
-    {
-        cout << "ENTER YOUR BLOCK NO    : ";
-        cin >> block;                                                   
-        cin.ignore();
-        cout << "ENTER YOUR HOUSE NAME  : ";
-        getline(cin, houseName);                                      
-        cout << "ENTER YOUR CITY NAME   : ";
-        getline(cin, city);                                             
-        cout << "ENTER YOUR POST CODE   : ";
-        cin >> zip;                                                     
-    }
-
-    string getFullAddress()                                              // Accessor, Returns the complete address as a formatted string.
-    {
-        return block + ", " + houseName + ", " + city + ", " + zip + "."; 
-    }
-};
-
-
-/*================================================================ << Register Class>> ==========================================================*/
-
-class Register //contain Aggregation method
+class Register
 {
 private:
     string fullName;
     string gender;
     string phoneNo;
     string email;
-    Address *address; //Aggregation
+    string block;
+    string houseName;
+    string city;
+    string zip;
     string username;
     string password;
     string retrive_un;
@@ -66,7 +27,7 @@ private:
     string Readdress = " ";
 
 public:
-    Register(); //default Constructor
+    Register();//default Constructor
     void setFullName()
     {
         cout << "ENTER YOUR FULL NAME   : ";
@@ -116,11 +77,19 @@ public:
     }
     void setAddress()
     {
-        address->SetAddress();
+        cout << "ENTER YOUR BLOCK NO    : ";
+        cin >> block;
+        cin.ignore();
+        cout << "ENTER YOUR HOUSE NAME  : ";
+        getline(cin, houseName);
+        cout << "ENTER YOUR CITY NAME   : ";
+        getline(cin, city);
+        cout << "ENTER YOUR POST CODE   : ";
+        cin >> zip;
     }
     string getAddress()
     {
-        return address->getFullAddress();
+        return block + ", " + houseName + ", " + city + ", " + zip + ".";
     }
     string getReAddress()
     {
@@ -130,13 +99,12 @@ public:
     void enter();                   //Asks for registration of people
     void DoRegistration();          // user registration form
     void DoLogin();                 //this function ask and verified id pass for user login
-    ~Register() { delete address; } //destructor
+    ~Register() { } //destructor
 };
 
 Register::Register() //outsider member function
 {
     username = password = retrive_un = retrive_pw = "";
-    address = new Address;
 }
 
 void Register::enter()
@@ -173,7 +141,7 @@ void Register::DoRegistration()
     setGender();
     setPhoneNo();
     setEmail();
-    address->SetAddress();
+    setAddress();
     cout << endl
          << endl;
     cout << "\tENTER ANY USER NAME : ";
