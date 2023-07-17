@@ -284,6 +284,7 @@ public:
 
 /*================================================================ << ProductList Class>> ==========================================================*/
 
+
 class ProductList //contain composition task (product class)
 {
 private:
@@ -308,7 +309,7 @@ public:
         productList.emplace_back(i, n, p);
     }
 
-    void removeProduct(string r)
+    void removeProductListProduct(string r)
     {
         int RE;
         for (int i = 0; i < productList.size(); i++)
@@ -387,7 +388,7 @@ public:
         cout << endl;
     }
 
-    void removeProduct()
+    void removeProductAdmin()
     {
         int count;
         string id;
@@ -402,7 +403,7 @@ public:
 
             cout << "Mention Product id: ";
             cin >> id;
-            ProductList::removeProduct(id);
+            ProductList::removeProductListProduct(id);
             cout << endl;
         }
     }
@@ -467,7 +468,7 @@ public:
         cout << endl;
     }
 
-    void removeProduct()
+    void removeProductFromCart()
     {
         int count;
         string id;
@@ -748,7 +749,7 @@ public:
         cin >> count;
         if (count == 1)
         {
-            ShoppingCart::removeProduct();
+            ShoppingCart::removeProductFromCart();
         }
 
         ShoppingCart::displaySelectedProduct();
@@ -913,7 +914,7 @@ A:
 
         else if (choice == 2)
         {
-            admin.removeProduct(); //only Admin can remove more products in current stock
+            admin.removeProductAdmin(); //only Admin can remove more products in current stock
             std::system("cls");
             cout << "-------------------------------------------------" << endl
                  << "|               CURRENT STOCK                   |" << endl
