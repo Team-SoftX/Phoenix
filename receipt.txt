@@ -8,7 +8,7 @@
 ---------------------------------------------------------------
 
 Transaction Number       : XX783RGFH41
-Date and Time is         : Tue Jul 18 05:39:03 2023
+Date and Time is         : Tue Jul 18 05:47:01 2023
 
 Customer Name            : 123
 Customer Gender          : Male
@@ -18,13 +18,12 @@ Shipping Address         : 123, 123, 123, 123.
 
       ProductID      ProductName       ProductPrice
         13              Mobile                4500
-        11               Shirt               130.5
 
-Total Item             :  2
-Total Cost             :  4630.5 RM
+Total Item             :  1
+Total Cost             :  4500 RM
 
-Your On-line Banking ID 	 : 123213
-RM4630.5 has been deducted from your account.
+Your ONLINE Banking ID 	 : 123
+RM4500 has been deducted from your account.
 
  
 

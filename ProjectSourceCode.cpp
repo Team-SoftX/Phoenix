@@ -961,7 +961,7 @@ A:
 
                                                //remove product from his shopping cart before proceeding payment
         customer.PaymentWork();                //customer object call the paymentWork function for complete the payment before placing order
-
+ std::system("cls");
         customer.Receipt(); //An automated receipt will be generated for customer and mentioning the the details
                             //as well as current time and date
 
