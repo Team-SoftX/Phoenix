@@ -130,7 +130,6 @@ void Register::enter()
     }
 }
 
-
 void Register::DoRegistration()
 {
     cout << "-------------------------------------------------" << endl
@@ -597,7 +596,7 @@ public:
              << "|      PLEASE CHOOSE ANY PAYMENT GATEWAY:     |" << endl
              << "-----------------------------------------------" << endl
              << "\t(1) DEBT/CREDIT CARD" << endl
-             << "\t(2) ON-LINE BANKING" << endl
+             << "\t(2) ONLINE BANKING" << endl
              << "\tChoose any option-";
         cin >> payment;
         std::system("cls");
@@ -638,7 +637,7 @@ public:
                  << "|           ONLINE BANKING PAYMENT           |" << endl
                  << "----------------------------------------------" << endl
                  << endl;
-            cout << "   ENTER YOUR ON-lINE BANKING ID : ";
+            cout << "   ENTER YOUR ONlINE BANKING ID : ";
             cin >> ibankUserId;
             cout << "   ENTER YOUR PASSWORD           : ";
             cin >> ibankingPassword;
@@ -725,7 +724,7 @@ public:
         }
         else
         {
-            cout << "Your On-line Banking ID 	 : ";
+            cout << "Your ONLINE Banking ID 	 : ";
             cout << payment.getIbankUserId() << endl;
             cout << "RM" << ShoppingCart::getTotalPrice() << " has been deducted from your account.\n\n";
         }
@@ -744,7 +743,7 @@ public:
 
         cout << " Do you want to remove any product?\n"
              << "    (1).Yes \n"
-
+             << "    (2).No \n"
              << "    Choose an option-";
         cin >> count;
         if (count == 1)
@@ -820,7 +819,7 @@ public:
         }
         else
         {
-            outfile << "Your On-line Banking ID 	 : ";
+            outfile << "Your ONLINE Banking ID 	 : ";
             outfile << payment.getIbankUserId() << endl;
             outfile << "RM" << ShoppingCart::getTotalPrice() << " has been deducted from your account.\n\n";
         }
