@@ -8,8 +8,251 @@
 
 using namespace std; 
 
+class Address //this class aggregated by Register class
+{
+private: //Private Attributes
+    string block;
+    string houseName;
+    string city;
+    string zip;
 
+public:                                                                 //Public Member functions
+    Address(string b = "", string h = "", string c = "", string z = "") //Constructor
+    {
+        block = b;
+        houseName = h;
+        city = c;
+        zip = z;
+    }
+    void SetAddress() // mutator or set function
+    {
+        cout << "ENTER YOUR BlOCK NO    : ";
+        cin >> block;
+        cin.ignore();
+        cout << "ENTER YOUR HOUSE NAME  : ";
+        getline(cin, houseName);
+        cout << "ENTER YOUR CITY NAME   : ";
+        getline(cin, city);
+        cout << "ENTER YOUR POST CODE   : ";
+        cin >> zip;
+    }
 
+    string getFullAddress() //accessors or get function
+    {
+        return block + ", " + houseName + ", " + city + ", " + zip + ".";
+    }
+};
+
+/*================================================================ << Register Class>> ==========================================================*/
+
+class Register //contain Aggregation method
+{
+private:
+    string fullName;
+    string gender;
+    string phoneNo;
+    string email;
+    Address *address; //Aggregation
+    string username;
+    string password;
+    string retrive_un;
+    string retrive_pw;
+    string Readdress = " ";
+
+public:
+    Register(); //default Constructor
+    void setFullName()
+    {
+        cout << "ENTER YOUR FULL NAME   : ";
+        cin.ignore();
+        getline(cin, fullName);
+    }
+    string getfullName()
+    {
+        return fullName;
+    }
+    void setGender() //in-line member functions
+    {
+    A:
+        cout << "ARE YOU Male or Female : ";
+        cin >> gender;
+        if ((gender == "Male") || (gender == "male") || (gender == "Female") || (gender == "female"))
+        {
+        }
+        else
+        {
+            cout << "Input Error! Please try again.\n";
+            goto A;
+        }
+    }
+    string getGender()
+    {
+        return gender;
+    }
+    void setPhoneNo()
+    {
+        cout << "ENTER YOUR PHONE NO    : ";
+        cin >> phoneNo;
+    }
+    string getPhoneNo()
+    {
+        return phoneNo;
+    }
+    void setEmail()
+    {
+        cout << "ENTER YOUR EMAIL ADRS. : ";
+        cin.ignore();
+        getline(cin, email);
+    }
+    string getEmail()
+    {
+        return email;
+    }
+    void setAddress()
+    {
+        address->SetAddress();
+    }
+    string getAddress()
+    {
+        return address->getFullAddress();
+    }
+    string getReAddress()
+    {
+        return Readdress;
+    }
+
+    void enter();                   //Asks for registration of people
+    void DoRegistration();          // user registration form
+    void DoLogin();                 //this function ask and verified id pass for user login
+    ~Register() { delete address; } //destructor
+};
+
+Register::Register() //outsider member function
+{
+    username = password = retrive_un = retrive_pw = "";
+    address = new Address;
+}
+
+void Register::enter()
+{
+    int choice;
+    cout << endl
+         << "\t(1). REGISTRATION \n"
+         << "\t(2). LOG-IN\n"
+         << "\tChoose an option- ";
+    cin >> choice;
+    std::system("cls");
+    if (choice == 1)
+    {
+        DoRegistration();
+    }
+    if (choice == 2)
+    {
+        DoLogin();
+    }
+    else
+    {
+        DoLogin();
+    }
+}
+
+void Register::DoRegistration()
+{
+    cout << "-------------------------------------------------" << endl
+         << "|            ACCOUNT REGISTRATION               |" << endl
+         << "-------------------------------------------------" << endl
+         << endl
+         << endl;
+    setFullName();
+    setGender();
+    setPhoneNo();
+    setEmail();
+    address->SetAddress();
+    cout << endl
+         << endl;
+    cout << "\tENTER ANY USER NAME : ";
+    cin >> username;
+    cout << "\tENTER ANY PASSWORD  : ";
+    cin >> password;
+    ofstream file;
+    file.open("userinfo.txt", ios::binary);
+    file << username << endl;
+    file << password << endl;
+    file << getfullName() << endl;
+    file << getGender() << endl;
+    file << getPhoneNo() << endl;
+    file << getEmail() << endl;
+    file << getAddress() << endl;
+
+    file.close();
+    int choice;
+    cout << "\nDEAR SIR, YOUR REGISTRATION SUCCESSFUL!!" << endl;
+B:
+    cout << "\nPlease choose what you would like to do."
+         << "\n\t(1) LOG IN"
+         << "\n\t(2) EXIT"
+         << "\n\tChoose an option-";
+    cin >> choice;
+    if (choice == 1)
+    {
+    }
+
+    else if (choice == 2)
+    {
+        exit(0);
+    }
+
+    else
+    {
+        cout << "\n Input Error !\n";
+        goto B;
+    }
+}
+
+void Register::DoLogin()
+{
+    std::system("cls");
+    cout << "-------------------------------------------------" << endl
+         << "|                 USER LOG IN                   |" << endl
+         << "-------------------------------------------------" << endl
+         << endl
+         << endl;
+    cout << "\tENTER YOUR USER NAME : ";
+    cin >> username;
+    cout << "\tENTER YOUR PASSWORD  : ";
+    cin >> password;
+
+    ifstream read("userinfo.txt", ios::binary);
+    getline(read, retrive_un);
+    getline(read, retrive_pw);
+
+    try //Exception Handling
+    {
+        if (retrive_un == username && retrive_pw == password)
+        {
+
+            cout << endl
+                 << "Congratulations! login Successful..." << endl
+                 << endl;
+            getline(read, fullName);
+            getline(read, gender);
+            getline(read, phoneNo);
+            getline(read, email);
+            getline(read, Readdress);
+        }
+        else
+        {
+            throw 0;
+        }
+    }
+
+    catch (...) //Exception Handling
+    {
+        cout << endl
+             << "Sorry! login unsuccessful(try  again)" << endl;
+        DoLogin();
+    }
+}
 /*================================================================ << Product Class>> ==========================================================*/
 
 class Product
