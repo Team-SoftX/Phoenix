@@ -283,7 +283,7 @@ public:
     }
 };
 
-/*================================================================ << ProductList Class>> ==========================================================*/
+/*============= << ProductList Class>> ==========================================================*/
 
 
 class ProductList //contain composition task (product class)
@@ -305,6 +305,7 @@ public:
             productList[i].displayProduct();
         }
     }
+
     virtual void addProduct(string i, string n, double p)
     {
         productList.emplace_back(i, n, p);
@@ -324,7 +325,7 @@ public:
     }
 };
 
-/*============================================================== << Administrator Class>> ==========================================================*/
+/*============ << Administrator Class>> ==========================================================*/
 
 class Administrator : public Register, public ProductList //Inheritance Method:
                                                           // Register & ProductList class inherited by class Administrator
@@ -358,6 +359,7 @@ public:
     {
         return adminID;
     }
+
     void setAdminDetails()
     {
         setID();
@@ -410,7 +412,7 @@ public:
     }
 };
 
-/*============================================================== << ShoppingCart Class>> ==========================================================*/
+/*=========== << ShoppingCart Class>> ==========================================================*/
 
 class ShoppingCart //only inherited by Customer class
 {
@@ -433,6 +435,7 @@ public:
             TotalPrice += SelectedProduct[i].getPRICE();
         }
     }
+
     double getTotalPrice()
     {
         return TotalPrice;
