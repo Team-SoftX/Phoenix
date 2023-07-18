@@ -1,15 +1,15 @@
 #include <iostream>
 #include <string>
-#include <iomanip> 
+#include <iomanip>
 #include <vector>
 #include <ctime>
-#include <fstream> 
+#include <fstream>
 #include <limits>
 
-using namespace std; 
+using namespace std;
 
 /*================================================================ << Register Class>> ==========================================================*/
-class Register 
+class Register
 {
 private:
     string fullName;
@@ -102,7 +102,7 @@ public:
     ~Register() { } //destructor
 };
 
-Register::Register() 
+Register::Register()
 {
     username = password = retrive_un = retrive_pw = "";
 }
@@ -111,8 +111,8 @@ void Register::enter()
 {
     int choice;
     cout << endl //menu
-         << "\t(1). REGISTRATION \n" 
-         << "\t(2). LOG-IN\n" 
+         << "\t(1). REGISTRATION \n"
+         << "\t(2). LOG-IN\n"
          << "\tChoose an option- ";
     cin >> choice;
     std::system("cls");
@@ -310,7 +310,7 @@ public:
         productList.emplace_back(i, n, p);
     }
 
-    void removeProductListProduct(string r)
+    void removeProduct(string r)
     {
         int RE;
         for (int i = 0; i < productList.size(); i++)
@@ -389,7 +389,7 @@ public:
         cout << endl;
     }
 
-    void removeProductAdmin()
+    void removeProduct()
     {
         int count;
         string id;
@@ -404,7 +404,7 @@ public:
 
             cout << "Mention Product id: ";
             cin >> id;
-            ProductList::removeProductListProduct(id);
+            ProductList::removeProduct(id);
             cout << endl;
         }
     }
@@ -469,7 +469,7 @@ public:
         cout << endl;
     }
 
-    void removeProductFromCart()
+    void removeProduct()
     {
         int count;
         string id;
@@ -514,13 +514,13 @@ void calculationPrice() {
 }
 */
 void storeCalculationPrice() {
-   
+
     double inStorePrice = 0.0;
     double item1Price = 10.0;
     double item2Price = 15.0;
 
     inStorePrice = item1Price + item2Price;
-    
+
     std::cout << "This is the cart price: " << inStorePrice << std::endl;
 }
 
@@ -784,7 +784,7 @@ public:
         cin >> count;
         if (count == 1)
         {
-            ShoppingCart::removeProductFromCart();
+            ShoppingCart::removeProduct();
         }
 
         ShoppingCart::displaySelectedProduct();
@@ -974,7 +974,7 @@ A:
 
         else if (choice == 2)
         {
-            admin.removeProductAdmin(); //only Admin can remove more products in current stock
+            admin.removeProduct(); //only Admin can remove more products in current stock
             std::system("cls");
             cout << "-------------------------------------------------" << endl
                  << "|               CURRENT STOCK                   |" << endl
