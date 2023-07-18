@@ -25,7 +25,7 @@ private:
     string password;
     string retrive_un;
     string retrive_pw;
-    string address = " ";
+    string Readdress = " ";
 
 public:
 //public member functions
@@ -95,9 +95,9 @@ public:
     {
         return block + ", " + houseName + ", " + city + ", " + zip + ".";
     }
-    string getaddress()
+    string getReAddress()
     {
-        return address;
+        return Readdress;
     }
 
     void enter();                   //Asks for registration of people
@@ -217,7 +217,7 @@ void Register::DoLogin()
             getline(read, gender);
             getline(read, phoneNo);
             getline(read, email);
-            getline(read, address);
+            getline(read, Readdress);
         }
         else
         {
@@ -708,7 +708,7 @@ public:
              << "Customer Gender          : " << Register::getGender() << endl
              << "Customer Contact Number  : " << Register::getPhoneNo() << endl
              << "Customer Email           : " << Register::getEmail() << endl
-             << "Shipping Address         : " << Register::getaddress() << endl
+             << "Shipping Address         : " << Register::getReAddress() << endl
              << endl
              << setw(15) << "PRODUCT-ID" << setw(17) << "PRODUCT-NAME" << setw(20) << "PRODUCT-PRICE\n";
 
@@ -803,7 +803,7 @@ public:
                 << "Customer Gender          : " << Register::getGender() << endl
                 << "Customer Contact Number  : " << Register::getPhoneNo() << endl
                 << "Customer Email           : " << Register::getEmail() << endl
-                << "Shipping Address         : " << Register::getaddress() << endl
+                << "Shipping Address         : " << Register::getReAddress() << endl
                 << endl
 
                 << setw(15) << "ProductID" << setw(17) << "ProductName" << setw(20) << "ProductPrice\n";
