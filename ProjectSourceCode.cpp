@@ -798,6 +798,19 @@ public:
         payment.paymentpreference();
     }
 
+    void viewProfile(){
+        std::system("cls");
+        cout<<"...................................................."<<endl;
+        cout<<"|                   CUSTOMER PROFILE                |"<<endl;
+        cout<<"...................................................."<<endl;
+        cout<<"Name: "<<Register::getfullName()<<endl;
+        cout<<"Gender: "<<Register::getGender()<<endl;
+        cout<<"Phone Number: "<<Register::getPhoneNo()<<endl;
+        cout<<"Email: "<<Register::getEmail()<<endl;
+        cout<<"Address: "<<Register::getReAddress()<<endl;
+        cout<<"...................................................."<<endl;
+    }
+
     void Receipt() //This receipt function generated an auto receipt for customer.
                    //and this receipt store in a text file for each and every customer.
     {
@@ -875,8 +888,6 @@ int main() //This is our main class
     int custChoose;
 
 //Create Product list
-
-
 ProductList plist;   //create an object for ProductList
     vector<Product> product(10); //For displaying our sample product we were using vector function
     product[0] = Product("11", "Shirt", 130.50);
@@ -1008,7 +1019,7 @@ D:
              << endl
              << endl;
         admin.displayProductList(); //After successful login Customer can visit all available products
-
+        customer.viewProfile();     //Customer can also view his profile
         customer.ShoppingCartdetails(product); //Customer Added desirable products on my shopping cart, Customer can also
 
                                                //remove product from his shopping cart before proceeding payment
