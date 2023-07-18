@@ -1,18 +1,15 @@
-// The following header files are included to provide specific functionalities.
-#include <iostream> // to perform standard input and output operations
-#include <string> // to use string data type
-#include <iomanip> // to use manipulators
-#include <vector> // to use vector- Provides a container class for dynamic arrays
-#include <ctime> // to use time functions (Dates and time)
-#include <fstream> // to use file handling - provides classes for creating, reading, and writing to files
+#include <iostream>
+#include <string>
+#include <iomanip> 
+#include <vector>
+#include <ctime>
+#include <fstream> 
 #include <limits>
-// Push code in development brach first
 
-using namespace std; // for accessing the standard library
+using namespace std; 
 
-class Register //class for user registration and login
+class Register 
 {
-//private data members
 private:
     string fullName;
     string gender;
@@ -29,21 +26,18 @@ private:
     string Readdress = " ";
 
 public:
-//public member functions
-    Register();//default Constructor
-    //mutator functions
+    Register();
     void setFullName()
     {
         cout << "ENTER YOUR FULL NAME   : ";
         cin.ignore();
         getline(cin, fullName);
     }
-    //accessor functions
     string getfullName()
     {
         return fullName;
     }
-    void setGender() //in-line member functions
+    void setGender()
     {
     A:
         cout << "ARE YOU Male or Female : ";
@@ -107,7 +101,7 @@ public:
     ~Register() { } //destructor
 };
 
-Register::Register() //outsider member function
+Register::Register() 
 {
     username = password = retrive_un = retrive_pw = "";
 }
@@ -116,22 +110,22 @@ void Register::enter()
 {
     int choice;
     cout << endl //menu
-         << "\t(1). REGISTRATION \n" // Display registration option
-         << "\t(2). LOG-IN\n" // Display login option
-         << "\tChoose an option- ";// Prompt for user choice
-    cin >> choice;// Read user choice
-    std::system("cls");// Clear the console screen
+         << "\t(1). REGISTRATION \n" 
+         << "\t(2). LOG-IN\n" 
+         << "\tChoose an option- ";
+    cin >> choice;
+    std::system("cls");
     if (choice == 1)
     {
-        DoRegistration();// Call the DoRegistration() function if choice is 1
+        DoRegistration();
     }
     if (choice == 2)
     {
-        DoLogin();// Call the DoLogin() function if choice is 2
+        DoLogin();
     }
     else
     {
-        DoLogin();// Call the DoLogin() function for any other choice
+        DoLogin();
     }
 }
 
