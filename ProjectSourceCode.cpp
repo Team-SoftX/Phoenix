@@ -1,15 +1,15 @@
 #include <iostream>
 #include <string>
-#include <iomanip> 
+#include <iomanip>
 #include <vector>
 #include <ctime>
-#include <fstream> 
+#include <fstream>
 #include <limits>
 
-using namespace std; 
+using namespace std;
 
 /*================================================================ << Register Class>> ==========================================================*/
-class Register 
+class Register
 {
 private:
     string fullName;
@@ -102,7 +102,7 @@ public:
     ~Register() { } //destructor
 };
 
-Register::Register() 
+Register::Register()
 {
     username = password = retrive_un = retrive_pw = "";
 }
@@ -111,8 +111,8 @@ void Register::enter()
 {
     int choice;
     cout << endl //menu
-         << "\t(1). REGISTRATION \n" 
-         << "\t(2). LOG-IN\n" 
+         << "\t(1). REGISTRATION \n"
+         << "\t(2). LOG-IN\n"
          << "\tChoose an option- ";
     cin >> choice;
     std::system("cls");
@@ -283,7 +283,7 @@ public:
     }
 };
 
-/*================================================================ << ProductList Class>> ==========================================================*/
+/*============= << ProductList Class>> ==========================================================*/
 
 
 class ProductList //contain composition task (product class)
@@ -305,12 +305,13 @@ public:
             productList[i].displayProduct();
         }
     }
+
     virtual void addProduct(string i, string n, double p)
     {
         productList.emplace_back(i, n, p);
     }
 
-    void removeProductListProduct(string r)
+    void removeProduct(string r)
     {
         int RE;
         for (int i = 0; i < productList.size(); i++)
@@ -324,7 +325,7 @@ public:
     }
 };
 
-/*============================================================== << Administrator Class>> ==========================================================*/
+/*============ << Administrator Class>> ==========================================================*/
 
 class Administrator : public Register, public ProductList //Inheritance Method:
                                                           // Register & ProductList class inherited by class Administrator
@@ -358,6 +359,7 @@ public:
     {
         return adminID;
     }
+
     void setAdminDetails()
     {
         setID();
@@ -389,7 +391,7 @@ public:
         cout << endl;
     }
 
-    void removeProductAdmin()
+    void removeProduct()
     {
         int count;
         string id;
@@ -404,13 +406,13 @@ public:
 
             cout << "Mention Product id: ";
             cin >> id;
-            ProductList::removeProductListProduct(id);
+            ProductList::removeProduct(id);
             cout << endl;
         }
     }
 };
 
-/*============================================================== << ShoppingCart Class>> ==========================================================*/
+/*=========== << ShoppingCart Class>> ==========================================================*/
 
 class ShoppingCart //only inherited by Customer class
 {
@@ -433,6 +435,7 @@ public:
             TotalPrice += SelectedProduct[i].getPRICE();
         }
     }
+
     double getTotalPrice()
     {
         return TotalPrice;
@@ -469,7 +472,7 @@ public:
         cout << endl;
     }
 
-    void removeProductFromCart()
+    void removeProduct()
     {
         int count;
         string id;
@@ -505,6 +508,28 @@ public:
         }
         cout << endl;
     }
+<<<<<<< HEAD
+=======
+    /*
+void calculationPrice() {
+    float cartPrice = 0.0;
+    float item1Price = 0.0;
+    float item2Price = 0.0;
+    std::cout << "This is the cart price- " << std::endl;
+}
+*/
+void storeCalculationPrice() {
+
+    double inStorePrice = 0.0;
+    double item1Price = 10.0;
+    double item2Price = 15.0;
+
+    inStorePrice = item1Price + item2Price;
+
+    std::cout << "This is the cart price: " << inStorePrice << std::endl;
+}
+
+>>>>>>> PHOEN-19-Resolve-code-smell-of-Alternative-Classes-with-Different-Interfaces
 
 };
 
@@ -765,7 +790,7 @@ public:
         cin >> count;
         if (count == 1)
         {
-            ShoppingCart::removeProductFromCart();
+            ShoppingCart::removeProduct();
         }
 
         ShoppingCart::displaySelectedProduct();
@@ -955,7 +980,7 @@ A:
 
         else if (choice == 2)
         {
-            admin.removeProductAdmin(); //only Admin can remove more products in current stock
+            admin.removeProduct(); //only Admin can remove more products in current stock
             std::system("cls");
             cout << "-------------------------------------------------" << endl
                  << "|               CURRENT STOCK                   |" << endl
