@@ -8,51 +8,18 @@
 
 using namespace std; 
 
-class Address //this class aggregated by Register class
-{
-private: //Private Attributes
-    string block;
-    string houseName;
-    string city;
-    string zip;
-
-public:                                                                 //Public Member functions
-    Address(string b = "", string h = "", string c = "", string z = "") //Constructor
-    {
-        block = b;
-        houseName = h;
-        city = c;
-        zip = z;
-    }
-    void SetAddress() // mutator or set function
-    {
-        cout << "ENTER YOUR BlOCK NO    : ";
-        cin >> block;
-        cin.ignore();
-        cout << "ENTER YOUR HOUSE NAME  : ";
-        getline(cin, houseName);
-        cout << "ENTER YOUR CITY NAME   : ";
-        getline(cin, city);
-        cout << "ENTER YOUR POST CODE   : ";
-        cin >> zip;
-    }
-
-    string getFullAddress() //accessors or get function
-    {
-        return block + ", " + houseName + ", " + city + ", " + zip + ".";
-    }
-};
-
 /*================================================================ << Register Class>> ==========================================================*/
-
-class Register //contain Aggregation method
+class Register 
 {
 private:
     string fullName;
     string gender;
     string phoneNo;
     string email;
-    Address *address; //Aggregation
+    string block;
+    string houseName;
+    string city;
+    string zip;
     string username;
     string password;
     string retrive_un;
@@ -60,7 +27,7 @@ private:
     string Readdress = " ";
 
 public:
-    Register(); //default Constructor
+    Register();
     void setFullName()
     {
         cout << "ENTER YOUR FULL NAME   : ";
@@ -71,14 +38,14 @@ public:
     {
         return fullName;
     }
-    void setGender() //in-line member functions
+    void setGender()
     {
     A:
         cout << "ARE YOU Male or Female : ";
         cin >> gender;
         if ((gender == "Male") || (gender == "male") || (gender == "Female") || (gender == "female"))
-        {
-        }
+            {
+            }
         else
         {
             cout << "Input Error! Please try again.\n";
@@ -110,11 +77,19 @@ public:
     }
     void setAddress()
     {
-        address->SetAddress();
+        cout << "ENTER YOUR BLOCK NO    : ";
+        cin >> block;
+        cin.ignore();
+        cout << "ENTER YOUR HOUSE NAME  : ";
+        getline(cin, houseName);
+        cout << "ENTER YOUR CITY NAME   : ";
+        getline(cin, city);
+        cout << "ENTER YOUR POST CODE   : ";
+        cin >> zip;
     }
     string getAddress()
     {
-        return address->getFullAddress();
+        return block + ", " + houseName + ", " + city + ", " + zip + ".";
     }
     string getReAddress()
     {
@@ -124,21 +99,20 @@ public:
     void enter();                   //Asks for registration of people
     void DoRegistration();          // user registration form
     void DoLogin();                 //this function ask and verified id pass for user login
-    ~Register() { delete address; } //destructor
+    ~Register() { } //destructor
 };
 
-Register::Register() //outsider member function
+Register::Register() 
 {
     username = password = retrive_un = retrive_pw = "";
-    address = new Address;
 }
-
+//member function definitions
 void Register::enter()
 {
     int choice;
-    cout << endl
-         << "\t(1). REGISTRATION \n"
-         << "\t(2). LOG-IN\n"
+    cout << endl //menu
+         << "\t(1). REGISTRATION \n" 
+         << "\t(2). LOG-IN\n" 
          << "\tChoose an option- ";
     cin >> choice;
     std::system("cls");
@@ -156,6 +130,7 @@ void Register::enter()
     }
 }
 
+
 void Register::DoRegistration()
 {
     cout << "-------------------------------------------------" << endl
@@ -167,7 +142,7 @@ void Register::DoRegistration()
     setGender();
     setPhoneNo();
     setEmail();
-    address->SetAddress();
+    setAddress();
     cout << endl
          << endl;
     cout << "\tENTER ANY USER NAME : ";
@@ -253,6 +228,7 @@ void Register::DoLogin()
         DoLogin();
     }
 }
+
 /*================================================================ << Product Class>> ==========================================================*/
 
 class Product
