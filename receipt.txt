@@ -8,13 +8,13 @@
 ---------------------------------------------------------------
 
 Transaction Number       : XX783RGFH41
-Date and Time is         : Tue Jul 18 05:47:01 2023
+Date and Time is         : Tue Jul 18 09:38:33 2023
 
-Customer Name            : 123
-Customer Gender          : Male
+Customer Name            : 1213
+Customer Gender          : male
 Customer Contact Number  : 123
-Customer Email           : 213
-Shipping Address         : 123, 123, 123, 123.
+Customer Email           : 123
+Shipping Address         : 123, 213, 321, 321.
 
       ProductID      ProductName       ProductPrice
         13              Mobile                4500
@@ -22,8 +22,8 @@ Shipping Address         : 123, 123, 123, 123.
 Total Item             :  1
 Total Cost             :  4500 RM
 
-Your ONLINE Banking ID 	 : 123
-RM4500 has been deducted from your account.
+Card Payment : 4500
+Card digit   : ************ 
 
  
 

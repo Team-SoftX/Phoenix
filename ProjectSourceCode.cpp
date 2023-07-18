@@ -5,6 +5,7 @@
 #include <vector> // to use vector- Provides a container class for dynamic arrays
 #include <ctime> // to use time functions (Dates and time)
 #include <fstream> // to use file handling - provides classes for creating, reading, and writing to files
+#include <limits>
 // Push code in development brach first
 
 using namespace std; // for accessing the standard library
@@ -682,11 +683,25 @@ public:
         Register::enter();
     }
 
+    int customerMenu()
+    {
+        int choice=0;
+    cout << "\nDEAR CUSTOMER, YOU MAY CHOOSE ANY OPTION:\n\n"
+         << "  \t(1). View Profile \n"
+         << "  \t(2). Order Products\n"
+         << "  \t(3). Exit  \n\n"
+         << "PLEASE CHOOSE AN OPTION- ";
+    cin >> choice;
+    std::system("cls");
+
+    return choice;
+    }
+
     void print()
     {
+        std::system("cls");
         time_t now = time(0);
         char *dt = ctime(&now);
-        std::system("cls");
         cout << "***************************************************************" << endl
              << "|                        CUSTOMER INVOICE                     |" << endl
              << "***************************************************************" << endl
@@ -763,6 +778,18 @@ public:
              << "Total Cost             :  " << ShoppingCart::getTotalPrice() << " RM" << endl
              << endl;
     }
+      void ShoppingCartdisplaySelectedProduct()
+    {
+
+        ShoppingCart::displaySelectedProduct();
+        ShoppingCart::CalcTotalPrice();
+        cout << "\nTotal Item             :  " << ShoppingCart::getTotalQuantity() << endl
+             << "Total Cost             :  " << ShoppingCart::getTotalPrice() << " RM" << endl
+             << endl;
+    }
+
+
+
 
     void PaymentWork()
     {
@@ -774,6 +801,7 @@ public:
     void Receipt() //This receipt function generated an auto receipt for customer.
                    //and this receipt store in a text file for each and every customer.
     {
+        std::system("cls");
         time_t now = time(0);
         char *dt = ctime(&now);
 
@@ -844,6 +872,7 @@ int main() //This is our main class
 {
     Administrator admin; //create an object for Administrator
     Customer customer;   //create an object for Customer
+    int custChoose;
 
 //Create Product list
 
@@ -952,7 +981,26 @@ A:
              << endl
              << endl;
         customer.setCustomerDetails(); //call for Customer Registration by filling up all information
+D:
+        custChoose = customer.customerMenu();
+        std::system("cls");
 
+         if (custChoose == 1)
+         {
+
+            //profile
+
+
+
+
+
+            cout << "Press Enter to continue...";
+            cin.ignore(std::numeric_limits<std::streamsize>::max(), '\n');
+            cin.get();
+            goto D;
+         }
+        else if (custChoose == 2)
+        {
         std::system("cls");
         cout << "**************************************************" << endl
              << "|     WELCOME TO E-SHOPPING MANAGEMENT SYSTEM!   |" << endl
@@ -963,16 +1011,36 @@ A:
 
         customer.ShoppingCartdetails(product); //Customer Added desirable products on my shopping cart, Customer can also
 
-
-
                                                //remove product from his shopping cart before proceeding payment
         customer.PaymentWork();                //customer object call the paymentWork function for complete the payment before placing order
- std::system("cls");
+         std::system("cls");
         customer.Receipt(); //An automated receipt will be generated for customer and mentioning the the details
                             //as well as current time and date
 
         customer.print(); //Also Customer can see the final output in the screen of our management system
+        }
+
+        else if (custChoose == 3)
+        {
+
+            exit(0);
+        }
+        else
+        {
+            cout << "\n Input Error 0_0  !\n";
+            goto D;
+        }
+
     }
+    else if (choice == 3)
+        {
+            exit(0);
+        }
+    else
+        {
+            cout << "\n Input Error 0_0  !\n";
+            goto A;
+        }
 
     return 0;
 }
