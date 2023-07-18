@@ -1,13 +1,13 @@
 // The following header files are included to provide specific functionalities.
-#include <iostream> 
-#include <string> 
-#include <iomanip> 
-#include <vector> 
-#include <ctime> 
-#include <fstream> 
+#include <iostream>
+#include <string>
+#include <iomanip>
+#include <vector>
+#include <ctime>
+#include <fstream>
 // Push code in development brach first
 
-using namespace std; 
+using namespace std;
 
 class Register
 {
