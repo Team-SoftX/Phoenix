@@ -998,13 +998,8 @@ D:
 
          if (custChoose == 1)
          {
-
             //profile
-
-
-
-
-
+            customer.viewProfile();  //Customer can also view his profile
             cout << "Press Enter to continue...";
             cin.ignore(std::numeric_limits<std::streamsize>::max(), '\n');
             cin.get();
@@ -1019,7 +1014,7 @@ D:
              << endl
              << endl;
         admin.displayProductList(); //After successful login Customer can visit all available products
-        customer.viewProfile();     //Customer can also view his profile
+          
         customer.ShoppingCartdetails(product); //Customer Added desirable products on my shopping cart, Customer can also
 
                                                //remove product from his shopping cart before proceeding payment
