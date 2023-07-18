@@ -529,6 +529,26 @@ public:
         }
         cout << endl;
     }
+    /*
+void calculationPrice() {
+    float cartPrice = 0.0;
+    float item1Price = 0.0;
+    float item2Price = 0.0;
+    std::cout << "This is the cart price- " << std::endl;
+}
+*/
+void storeCalculationPrice() {
+   
+    double inStorePrice = 0.0;
+    double item1Price = 10.0;
+    double item2Price = 15.0;
+
+    inStorePrice = item1Price + item2Price;
+    
+    std::cout << "This is the cart price: " << inStorePrice << std::endl;
+}
+
+
 };
 
 
