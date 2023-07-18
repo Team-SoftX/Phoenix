@@ -1014,7 +1014,7 @@ D:
              << endl
              << endl;
         admin.displayProductList(); //After successful login Customer can visit all available products
-          
+
         customer.ShoppingCartdetails(product); //Customer Added desirable products on my shopping cart, Customer can also
 
                                                //remove product from his shopping cart before proceeding payment
