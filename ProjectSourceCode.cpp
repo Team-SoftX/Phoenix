@@ -508,8 +508,7 @@ public:
         }
         cout << endl;
     }
-<<<<<<< HEAD
-=======
+
     /*
 void calculationPrice() {
     float cartPrice = 0.0;
@@ -529,7 +528,6 @@ void storeCalculationPrice() {
     std::cout << "This is the cart price: " << inStorePrice << std::endl;
 }
 
->>>>>>> PHOEN-19-Resolve-code-smell-of-Alternative-Classes-with-Different-Interfaces
 
 };
 
