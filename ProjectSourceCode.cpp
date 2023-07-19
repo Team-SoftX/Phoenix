@@ -30,10 +30,10 @@ public:
     Register();
         void setUsernameAndPassword()
     {
-        cout << "\tENTER ANY USER NAME : ";
+        cout << "\tENTER USER NAME : ";
         cin >> username;
 
-        cout << "\tENTER ANY PASSWORD  : ";
+        cout << "\tENTER PASSWORD  : ";
         cin >> password;
     }
     void setFullName()
