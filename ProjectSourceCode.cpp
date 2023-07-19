@@ -141,9 +141,8 @@ void Register::enter()
 
 void Register::DoRegistration()
 {
-    cout << "-------------------------------------------------" << endl
-         << "|            ACCOUNT REGISTRATION               |" << endl
-         << "-------------------------------------------------" << endl
+    cout << "|            ACCOUNT REGISTRATION              |" << endl
+         << "------------------------------------------------" << endl
          << endl
          << endl;
     setFullName();
@@ -713,7 +712,6 @@ public:
          << "  \t(3). Exit  \n\n"
          << "PLEASE CHOOSE AN OPTION- ";
     cin >> choice;
-    std::system("cls");
 
     return choice;
     }
@@ -809,9 +807,6 @@ public:
              << endl;
     }
 
-
-
-
     void PaymentWork()
     {
 
@@ -831,6 +826,19 @@ public:
         cout<<"Address: "<<Register::getReAddress()<<endl;
         cout<<"...................................................."<<endl;
     }
+
+
+     void updateProfile()
+    {
+        std::system("cls");
+        cout << "------------------------------------------------" << endl
+            << "|          UPDATE PROFILE - CUSTOMER            |" << endl;
+   
+        
+        Register::DoRegistration();
+
+    }
+
 
     void Receipt() //This receipt function generated an auto receipt for customer.
                    //and this receipt store in a text file for each and every customer.
@@ -1021,10 +1029,24 @@ D:
          {
             //profile
             customer.viewProfile();  //Customer can also view his profile
-            cout << "Press Enter to continue...";
-            cin.ignore(std::numeric_limits<std::streamsize>::max(), '\n');
-            cin.get();
-            goto D;
+            int choice;
+            cout << " \n \n Do you want to edit customer profile?\n"
+             << "    (1).Yes \n"
+             << "    (2).No \n";
+            cin>> choice;
+            if (choice == 1)
+             {
+                customer.updateProfile();
+                cout<<endl;
+                cout << "Press Enter to continue...";
+                std::system("cls");
+                cin.ignore(std::numeric_limits<std::streamsize>::max(), '\n');
+                cin.get();
+                goto D;
+            }
+            else {
+               goto D;
+            }
          }
         else if (custChoose == 2)
         {
