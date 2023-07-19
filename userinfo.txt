@@ -1,7 +1,17 @@
-123
-123
-123
+<<<<<<<<< Temporary merge branch 1
+321
+321
+1213
 male
-12
-12
-12, 21, 2121, 21.
+123
+123
+123, 213, 321, 321.
+=========
+M
+123
+M
+Male
+0123456789
+m@gmail.com
+M6, Mela, JB, 81300.
+>>>>>>>>> Temporary merge branch 2

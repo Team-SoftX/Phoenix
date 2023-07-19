@@ -39,14 +39,14 @@ public:
     {
         return fullName;
     }
-    void setGender() //in-line member functions
+    void setGender()
     {
     A:
         cout << "ARE YOU Male or Female : ";
         cin >> gender;
         if ((gender == "Male") || (gender == "male") || (gender == "Female") || (gender == "female"))
-        {
-        }
+            {
+            }
         else
         {
             cout << "Input Error! Please try again.\n";
@@ -103,7 +103,7 @@ public:
     ~Register() { } //destructor
 };
 
-Register::Register() //outsider member function
+Register::Register()
 {
     username = password = retrive_un = retrive_pw = "";
 }
@@ -133,9 +133,8 @@ void Register::enter()
 
 void Register::DoRegistration()
 {
-    cout << "-------------------------------------------------" << endl
-         << "|            ACCOUNT REGISTRATION               |" << endl
-         << "-------------------------------------------------" << endl
+    cout << "|            ACCOUNT REGISTRATION              |" << endl
+         << "------------------------------------------------" << endl
          << endl
          << endl;
     setFullName();
@@ -145,10 +144,7 @@ void Register::DoRegistration()
     setAddress();
     cout << endl
          << endl;
-    cout << "\tENTER ANY USER NAME : ";
-    cin >> username;
-    cout << "\tENTER ANY PASSWORD  : ";
-    cin >> password;
+    setUsernameAndPassword();
     ofstream file;
     file.open("userinfo.txt", ios::binary);
     file << username << endl;
@@ -192,10 +188,7 @@ void Register::DoLogin()
          << "-------------------------------------------------" << endl
          << endl
          << endl;
-    cout << "\tENTER YOUR USER NAME : ";
-    cin >> username;
-    cout << "\tENTER YOUR PASSWORD  : ";
-    cin >> password;
+    setUsernameAndPassword();
 
     ifstream read("userinfo.txt", ios::binary);
     getline(read, retrive_un);
@@ -283,7 +276,7 @@ public:
     }
 };
 
-/*================================================================ << ProductList Class>> ==========================================================*/
+/*============= << ProductList Class>> ==========================================================*/
 
 class ProductList //contain composition task (product class)
 {
@@ -304,6 +297,7 @@ public:
             productList[i].displayProduct();
         }
     }
+
     virtual void addProduct(string i, string n, double p)
     {
         productList.emplace_back(i, n, p);
@@ -323,7 +317,7 @@ public:
     }
 };
 
-/*============================================================== << Administrator Class>> ==========================================================*/
+/*============ << Administrator Class>> ==========================================================*/
 
 class Administrator : public Register, public ProductList //Inheritance Method:
                                                           // Register & ProductList class inherited by class Administrator
@@ -357,6 +351,7 @@ public:
     {
         return adminID;
     }
+
     void setAdminDetails()
     {
         setID();
@@ -409,7 +404,7 @@ public:
     }
 };
 
-/*============================================================== << ShoppingCart Class>> ==========================================================*/
+/*=========== << ShoppingCart Class>> ==========================================================*/
 
 class ShoppingCart //only inherited by Customer class
 {
@@ -432,6 +427,7 @@ public:
             TotalPrice += SelectedProduct[i].getPRICE();
         }
     }
+
     double getTotalPrice()
     {
         return TotalPrice;
@@ -504,6 +500,27 @@ public:
         }
         cout << endl;
     }
+
+    /*
+void calculationPrice() {
+    float cartPrice = 0.0;
+    float item1Price = 0.0;
+    float item2Price = 0.0;
+    std::cout << "This is the cart price- " << std::endl;
+}
+*/
+void storeCalculationPrice() {
+
+    double inStorePrice = 0.0;
+    double item1Price = 10.0;
+    double item2Price = 15.0;
+
+    inStorePrice = item1Price + item2Price;
+
+    std::cout << "This is the cart price: " << inStorePrice << std::endl;
+}
+
+
 };
 
 
@@ -686,7 +703,6 @@ public:
          << "  \t(3). Exit  \n\n"
          << "PLEASE CHOOSE AN OPTION- ";
     cin >> choice;
-    std::system("cls");
 
     return choice;
     }
@@ -782,15 +798,38 @@ public:
              << endl;
     }
 
-
-
-
     void PaymentWork()
     {
 
         payment.setPayNetAmmount(ShoppingCart::getTotalPrice());
         payment.paymentpreference();
     }
+
+    void viewProfile(){
+        std::system("cls");
+        cout<<"...................................................."<<endl;
+        cout<<"|                   CUSTOMER PROFILE                |"<<endl;
+        cout<<"...................................................."<<endl;
+        cout<<"Name: "<<Register::getfullName()<<endl;
+        cout<<"Gender: "<<Register::getGender()<<endl;
+        cout<<"Phone Number: "<<Register::getPhoneNo()<<endl;
+        cout<<"Email: "<<Register::getEmail()<<endl;
+        cout<<"Address: "<<Register::getReAddress()<<endl;
+        cout<<"...................................................."<<endl;
+    }
+
+
+     void updateProfile()
+    {
+        std::system("cls");
+        cout << "------------------------------------------------" << endl
+            << "|          UPDATE PROFILE - CUSTOMER            |" << endl;
+   
+        
+        Register::DoRegistration();
+
+    }
+
 
     void Receipt() //This receipt function generated an auto receipt for customer.
                    //and this receipt store in a text file for each and every customer.
@@ -981,17 +1020,26 @@ D:
 
          if (custChoose == 1)
          {
-
             //profile
-
-
-
-
-
-            cout << "Press Enter to continue...";
-            cin.ignore(std::numeric_limits<std::streamsize>::max(), '\n');
-            cin.get();
-            goto D;
+            customer.viewProfile();  //Customer can also view his profile
+            int choice;
+            cout << " \n \n Do you want to edit customer profile?\n"
+             << "    (1).Yes \n"
+             << "    (2).No \n";
+            cin>> choice;
+            if (choice == 1)
+             {
+                customer.updateProfile();
+                cout<<endl;
+                cout << "Press Enter to continue...";
+                std::system("cls");
+                cin.ignore(std::numeric_limits<std::streamsize>::max(), '\n');
+                cin.get();
+                goto D;
+            }
+            else {
+               goto D;
+            }
          }
         else if (custChoose == 2)
         {
