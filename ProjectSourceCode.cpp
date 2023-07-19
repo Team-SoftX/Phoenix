@@ -937,7 +937,7 @@ ProductList plist;   //create an object for ProductList
 
     std::system("cls");
     cout << "**************************************************" << endl
-         << "|     WELCOME TO E-SHOPPING MANAGEMENT SYSTEM!   |" << endl
+         << "|     WELCOME TO FOOD ORDERING SYSTEM!   |" << endl
          << "**************************************************" << endl
          << endl;
 
