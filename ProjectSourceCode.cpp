@@ -28,6 +28,14 @@ private:
 
 public:
     Register();
+        void setUsernameAndPassword()
+    {
+        cout << "\tENTER ANY USER NAME : ";
+        cin >> username;
+
+        cout << "\tENTER ANY PASSWORD  : ";
+        cin >> password;
+    }
     void setFullName()
     {
         cout << "ENTER YOUR FULL NAME   : ";
@@ -145,10 +153,7 @@ void Register::DoRegistration()
     setAddress();
     cout << endl
          << endl;
-    cout << "\tENTER ANY USER NAME : ";
-    cin >> username;
-    cout << "\tENTER ANY PASSWORD  : ";
-    cin >> password;
+    setUsernameAndPassword();
     ofstream file;
     file.open("userinfo.txt", ios::binary);
     file << username << endl;
@@ -192,10 +197,7 @@ void Register::DoLogin()
          << "-------------------------------------------------" << endl
          << endl
          << endl;
-    cout << "\tENTER YOUR USER NAME : ";
-    cin >> username;
-    cout << "\tENTER YOUR PASSWORD  : ";
-    cin >> password;
+    setUsernameAndPassword();
 
     ifstream read("userinfo.txt", ios::binary);
     getline(read, retrive_un);
