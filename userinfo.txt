@@ -1,17 +1,7 @@
-<<<<<<<<< Temporary merge branch 1
-321
-321
-1213
-male
-123
-123
-123, 213, 321, 321.
-=========
-M
-123
-M
+iammonir
+12345
+MD MONIRUL ISLAM
 Male
-0123456789
-m@gmail.com
-M6, Mela, JB, 81300.
->>>>>>>>> Temporary merge branch 2
+01139260117
+monirul@gmail.com
+M3, MELAWIS, Skudai, 81300.
