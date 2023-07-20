@@ -1,15 +1,14 @@
-// The following header files are included to provide specific functionalities.
-#include <iostream> // to perform standard input and output operations
-#include <string> // to use string data type
-#include <iomanip> // to use manipulators
-#include <vector> // to use vector- Provides a container class for dynamic arrays
-#include <ctime> // to use time functions (Dates and time)
-#include <fstream>//to use file handling - provides classes for creating, reading, and writing to files
-#include<limits>
-// Push code in development brach first
+#include <iostream>
+#include <string>
+#include <iomanip>
+#include <vector>
+#include <ctime>
+#include <fstream>
+#include <limits>
 
 using namespace std;
 
+/*================================================================ << Register Class>> ==========================================================*/
 class Register
 {
 private:
@@ -28,7 +27,15 @@ private:
     string Readdress = " ";
 
 public:
-    Register();//default Constructor
+    Register();
+        void setUsernameAndPassword()
+    {
+        cout << "\tENTER ANY USER NAME : ";
+        cin >> username;
+
+        cout << "\tENTER ANY PASSWORD  : ";
+        cin >> password;
+    }
     void setFullName()
     {
         cout << "ENTER YOUR FULL NAME   : ";
@@ -107,11 +114,11 @@ Register::Register()
 {
     username = password = retrive_un = retrive_pw = "";
 }
-
+//member function definitions
 void Register::enter()
 {
     int choice;
-    cout << endl
+    cout << endl //menu
          << "\t(1). REGISTRATION \n"
          << "\t(2). LOG-IN\n"
          << "\tChoose an option- ";
@@ -130,6 +137,7 @@ void Register::enter()
         DoLogin();
     }
 }
+
 
 void Register::DoRegistration()
 {
@@ -277,6 +285,7 @@ public:
 };
 
 /*============= << ProductList Class>> ==========================================================*/
+
 
 class ProductList //contain composition task (product class)
 {
@@ -614,7 +623,7 @@ public:
              << "|      PLEASE CHOOSE ANY PAYMENT GATEWAY:     |" << endl
              << "-----------------------------------------------" << endl
              << "\t(1) DEBT/CREDIT CARD" << endl
-             << "\t(2) ON-LINE BANKING" << endl
+             << "\t(2) ONLINE BANKING" << endl
              << "\tChoose any option-";
         cin >> payment;
         std::system("cls");
@@ -655,7 +664,7 @@ public:
                  << "|           ONLINE BANKING PAYMENT           |" << endl
                  << "----------------------------------------------" << endl
                  << endl;
-            cout << "   ENTER YOUR ON-lINE BANKING ID : ";
+            cout << "   ENTER YOUR ONlINE BANKING ID : ";
             cin >> ibankUserId;
             cout << "   ENTER YOUR PASSWORD           : ";
             cin >> ibankingPassword;
@@ -755,7 +764,7 @@ public:
         }
         else
         {
-            cout << "Your On-line Banking ID 	 : ";
+            cout << "Your ONLINE Banking ID 	 : ";
             cout << payment.getIbankUserId() << endl;
             cout << "RM" << ShoppingCart::getTotalPrice() << " has been deducted from your account.\n\n";
         }
@@ -774,7 +783,7 @@ public:
 
         cout << " Do you want to remove any product?\n"
              << "    (1).Yes \n"
-
+             << "    (2).No \n"
              << "    Choose an option-";
         cin >> count;
         if (count == 1)
@@ -886,7 +895,7 @@ public:
         }
         else
         {
-            outfile << "Your On-line Banking ID 	 : ";
+            outfile << "Your ONLINE Banking ID 	 : ";
             outfile << payment.getIbankUserId() << endl;
             outfile << "RM" << ShoppingCart::getTotalPrice() << " has been deducted from your account.\n\n";
         }
@@ -908,8 +917,6 @@ int main() //This is our main class
     int custChoose;
 
 //Create Product list
-
-
 ProductList plist;   //create an object for ProductList
     vector<Product> product(10); //For displaying our sample product we were using vector function
     product[0] = Product("11", "Shirt", 130.50);
@@ -1055,7 +1062,7 @@ D:
 
                                                //remove product from his shopping cart before proceeding payment
         customer.PaymentWork();                //customer object call the paymentWork function for complete the payment before placing order
- std::system("cls");
+         std::system("cls");
         customer.Receipt(); //An automated receipt will be generated for customer and mentioning the the details
                             //as well as current time and date
 
