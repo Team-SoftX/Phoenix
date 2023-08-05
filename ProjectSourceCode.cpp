@@ -413,7 +413,7 @@ public:
     }
 };
 
-/*=========== << ShoppingCart Class>> ==========================================================*/
+/*=========== << ShoppingCart Class>> =======================================================*/
 
 class ShoppingCart //only inherited by Customer class
 {
@@ -833,8 +833,8 @@ public:
         std::system("cls");
         cout << "------------------------------------------------" << endl
             << "|          UPDATE PROFILE - CUSTOMER            |" << endl;
-   
-        
+
+
         Register::DoRegistration();
 
     }
